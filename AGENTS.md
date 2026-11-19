@@ -28,3 +28,10 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Project rules
+
+- All invitation content (names, dates, venues, photos, music) lives in `src/config/weddingData.ts`; components read from it and never hardcode wedding details, so the couple can edit one file.
+- Invitation sections live in `src/components/wedding/` and the page composes them in `src/routes/index.tsx`; the layout is a centered mobile-width column (max 480px) because the design is a vertical phone invitation.
+- Images, music and other media are Lovable Assets pointers under `src/assets/wedding/`, keeping binaries out of the repo.
+- RSVPs insert directly into the `rsvps` table from the browser; RLS allows insert only (no public reads), so guest replies stay private.
